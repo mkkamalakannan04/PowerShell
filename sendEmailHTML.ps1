@@ -10,7 +10,7 @@ $a = $a + "</style>"
 
 $Body = gwmi -class win32_service | select Name,DisplayName,StartMode,State,ProcessId,StartName| ConvertTo-Html -Head $a -Body "This is sample HTML"
 
-   $smtpServer = "xxx.xxxx.com"
+   $smtpServer = "HIGMX.TheHartford.com"
 
      #Creating a Mail object
      $msg = new-object Net.Mail.MailMessage
@@ -19,9 +19,9 @@ $Body = gwmi -class win32_service | select Name,DisplayName,StartMode,State,Proc
      $smtp = new-object Net.Mail.SmtpClient($smtpServer)
 
      #Email structure 
-     $msg.From = "Kamal.Marimuthu@xxx.com"
-     $msg.ReplyTo = "Kamal.Marimuthu@xxx.com"
-     $msg.To.Add("Kamal.Marimuthu@xxx.com")
+     $msg.From = "Kamal.Marimuthu@TheHartford.com"
+     $msg.ReplyTo = "Kamal.Marimuthu@TheHartford.com"
+     $msg.To.Add("Kamal.Marimuthu@TheHartford.com")
      $msg.subject = "This is test from powershell"
      $msg.IsbodyHTML = $true
      $msg.body = $Body
